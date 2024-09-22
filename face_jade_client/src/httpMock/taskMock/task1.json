@@ -1,0 +1,210 @@
+{
+    "4": {
+      "inputs": {
+        "ckpt_name": "DreamShaper XL v2 Turbo DPMpp _v2 Turbo DPMpp .safetensors"
+      },
+      "class_type": "CheckpointLoaderSimple",
+      "_meta": {
+        "title": "Checkpoint加载器(简易)"
+      }
+    },
+    "5": {
+      "inputs": {
+        "width": 512,
+        "height": 512,
+        "batch_size": 1
+      },
+      "class_type": "EmptyLatentImage",
+      "_meta": {
+        "title": "空Latent"
+      }
+    },
+    "6": {
+      "inputs": {
+        "text": "9-year-girl,chinese,white hair,yellow-T-shirt",
+        "speak_and_recognation": true,
+        "clip": [
+          "4",
+          1
+        ]
+      },
+      "class_type": "CLIPTextEncode",
+      "_meta": {
+        "title": "CLIP文本编码器"
+      }
+    },
+    "7": {
+      "inputs": {
+        "text": "",
+        "speak_and_recognation": true,
+        "clip": [
+          "4",
+          1
+        ]
+      },
+      "class_type": "CLIPTextEncode",
+      "_meta": {
+        "title": "CLIP文本编码器"
+      }
+    },
+    "8": {
+      "inputs": {
+        "samples": [
+          "12",
+          0
+        ],
+        "vae": [
+          "4",
+          2
+        ]
+      },
+      "class_type": "VAEDecode",
+      "_meta": {
+        "title": "VAE解码"
+      }
+    },
+    "12": {
+      "inputs": {
+        "add_noise": "enable",
+        "noise_seed": 714011977534613,
+        "steps": 30,
+        "cfg": 8,
+        "sampler_name": "euler",
+        "scheduler": "normal",
+        "start_at_step": 0,
+        "end_at_step": 20,
+        "return_with_leftover_noise": "enable",
+        "model": [
+          "4",
+          0
+        ],
+        "positive": [
+          "6",
+          0
+        ],
+        "negative": [
+          "7",
+          0
+        ],
+        "latent_image": [
+          "5",
+          0
+        ]
+      },
+      "class_type": "KSamplerAdvanced",
+      "_meta": {
+        "title": "K采样器(高级)"
+      }
+    },
+    "13": {
+      "inputs": {
+        "ckpt_name": "真实感NightVision XL - Photorealistic _ Portrait _ Photography _ Hyperreal _ Architecture _ Interior Design - No refiner needed!_Beta_0.7.0.2-BakedVAE.safetensors"
+      },
+      "class_type": "CheckpointLoaderSimple",
+      "_meta": {
+        "title": "Checkpoint加载器(简易)"
+      }
+    },
+    "14": {
+      "inputs": {
+        "add_noise": "disable",
+        "noise_seed": 714011977534613,
+        "steps": 30,
+        "cfg": 8,
+        "sampler_name": "euler",
+        "scheduler": "normal",
+        "start_at_step": 20,
+        "end_at_step": 100,
+        "return_with_leftover_noise": "disable",
+        "model": [
+          "13",
+          0
+        ],
+        "positive": [
+          "16",
+          0
+        ],
+        "negative": [
+          "17",
+          0
+        ],
+        "latent_image": [
+          "12",
+          0
+        ]
+      },
+      "class_type": "KSamplerAdvanced",
+      "_meta": {
+        "title": "K采样器(高级)"
+      }
+    },
+    "15": {
+      "inputs": {
+        "images": [
+          "8",
+          0
+        ]
+      },
+      "class_type": "PreviewImage",
+      "_meta": {
+        "title": "预览图像"
+      }
+    },
+    "16": {
+      "inputs": {
+        "text": "9-year-girl,chinese,white hair,yellow-T-shirt",
+        "speak_and_recognation": true,
+        "clip": [
+          "13",
+          1
+        ]
+      },
+      "class_type": "CLIPTextEncode",
+      "_meta": {
+        "title": "CLIP文本编码器"
+      }
+    },
+    "17": {
+      "inputs": {
+        "text": "",
+        "speak_and_recognation": true,
+        "clip": [
+          "13",
+          1
+        ]
+      },
+      "class_type": "CLIPTextEncode",
+      "_meta": {
+        "title": "CLIP文本编码器"
+      }
+    },
+    "18": {
+      "inputs": {
+        "samples": [
+          "14",
+          0
+        ],
+        "vae": [
+          "13",
+          2
+        ]
+      },
+      "class_type": "VAEDecode",
+      "_meta": {
+        "title": "VAE解码"
+      }
+    },
+    "19": {
+      "inputs": {
+        "filename_prefix": "ComfyUI",
+        "images": [
+          "18",
+          0
+        ]
+      },
+      "class_type": "SaveImage",
+      "_meta": {
+        "title": "保存图像"
+      }
+    }
+  }
