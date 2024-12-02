@@ -1,6 +1,5 @@
 <template>
   <view>
-    999
     <button size="small" @click="postWebSocket">websocket</button>
     <button size="small" @click="clickPrompt">执行生成任务prompt</button>
     <button size="small" @click="clickView">查看任务信息</button>
